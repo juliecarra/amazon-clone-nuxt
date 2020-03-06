@@ -17,7 +17,8 @@
                     v-for="category in categories"
                     v-bind:value="category._id"
                     :key="category._id"
-                  >{{ category.type }}</option>
+                    >{{ category.type }}</option
+                  >
                 </select>
               </div>
               <!-- Owner Dropdown -->
@@ -28,18 +29,29 @@
                     v-for="owner in owners"
                     :value="owner._id"
                     :key="owner._id"
-                  >{{ owner.name }}</option>
+                    >{{ owner.name }}</option
+                  >
                 </select>
               </div>
               <!-- Title Input -->
               <div class="a-spacing-top-medium">
                 <label style="margin-bottom: 0px">Title</label>
-                <input type="text" class="a-input-text" style="width: 100%" v-model="title" />
+                <input
+                  type="text"
+                  class="a-input-text"
+                  style="width: 100%"
+                  v-model="title"
+                />
               </div>
               <!-- Price Input -->
               <div class="a-spacing-top-medium">
                 <label style="margin-bottom: 0px">Price</label>
-                <input type="number" class="a-input-text" style="width: 100%" v-model="price" />
+                <input
+                  type="number"
+                  class="a-input-text"
+                  style="width: 100%"
+                  v-model="price"
+                />
               </div>
               <!-- Stock Quantity Input -->
               <div class="a-spacing-top-medium">
@@ -66,7 +78,11 @@
                 <div class="a-row a-spacing-top-medium">
                   <!-- <label for class="choosefile-button">
                   <i class="fal fa-plus"></i>-->
-                  <input type="file" ref="file" v-on:change="handleImageUpload" />
+                  <input
+                    type="file"
+                    ref="file"
+                    v-on:change="handleImageUpload"
+                  />
                   <p style="margin-top: -70px">{{ imageName }}</p>
                   <!-- </label> -->
                 </div>
@@ -75,7 +91,9 @@
               <div class="a-spacing-top-large">
                 <span class="a-button-register">
                   <span class="a-button-inner">
-                    <span class="a-button-text" v-on:click="submitForm">Add Product</span>
+                    <span class="a-button-text" v-on:click="submitForm"
+                      >Add Product</span
+                    >
                   </span>
                 </span>
               </div>
@@ -95,8 +113,8 @@ export default {
     try {
       //Use this syntax to run multiple requests at the same time.
       let [categoriesRes, ownersRes] = await Promise.all([
-        $axios.$get("http://localhost:8080/api/categories"),
-        $axios.$get("http://localhost:8080/api/owners")
+        $axios.$get("/api/categories"),
+        $axios.$get("/api/owners")
       ]);
       return {
         categories: categoriesRes.categories,

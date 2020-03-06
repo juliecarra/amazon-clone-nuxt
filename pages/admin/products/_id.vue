@@ -116,9 +116,9 @@ export default {
     try {
       //Use this syntax to run multiple requests at the same time.
       let [categoriesRes, ownersRes, productRes] = await Promise.all([
-        $axios.$get("http://localhost:8080/api/categories"),
-        $axios.$get("http://localhost:8080/api/owners"),
-        $axios.$get(`http://localhost:8080/api/products/${params.id}`)
+        $axios.$get("/api/categories"),
+        $axios.$get("/api/owners"),
+        $axios.$get(`/api/products/${params.id}`)
       ]);
       //   debugger;
       return {
