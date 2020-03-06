@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "My groovy Nuxt.js project",
+  "author": "Julie Carra",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.8.5",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0",
+    "nuxt": "^2.0.0",
+    "nuxt-stripe-module": "^2.0.0",
+    "vue-star-rating": "^1.6.1",
+    "vuex-persistedstate": "^2.7.1"
+  },
+  "devDependencies": {}
+}
