@@ -30,7 +30,7 @@ router.post("/signup", (req, res) => {
 
     user.save();
     let token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
-      expiresIn: 604800 // 1 week
+      expiresIn: 3600 // 1 week
     });
     return res.status(201).send({
       success: true,
@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
       jwt.sign(
         user.toObject(),
         process.env.JWT_SECRET,
-        { expiresIn: 360000 },
+        { expiresIn: 3600 },
         (error, token) => {
           if (error) throw error;
           return res

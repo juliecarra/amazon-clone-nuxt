@@ -167,7 +167,7 @@ export default {
         //   Make the request to the POST http://localhost:8080/api/products URL
 
         await this.$axios.$patch(
-          `http://localhost:8080/api/products/${this.$route.params.id}`,
+          `/api/products/${this.$route.params.id}`,
           formData
         );
 
