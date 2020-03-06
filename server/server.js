@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const history = require("connect-history-api-fallback");
 const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -26,6 +27,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(history());
 app.use(cors());
 app.use(morgan("dev"));
 
