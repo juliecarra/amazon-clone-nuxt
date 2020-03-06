@@ -43,6 +43,10 @@ app.use("/api/orders", require("./routes/orders"));
 
 app.use(serveStatic(__dirname + "/dist"));
 
+app.get("/", function(req, res) {
+  res.render(path.join(__dirname + "/dist/index.html"));
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`App listening on: http://localhost:${process.env.PORT} !`);
 });
