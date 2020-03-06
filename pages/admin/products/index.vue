@@ -113,12 +113,12 @@ export default {
     try {
       //Use this syntax to run multiple requests at the same time.
       let [categoriesRes, ownersRes] = await Promise.all([
-        $axios.$get("/api/categories"),
-        $axios.$get("/api/owners")
+        $axios.$get("/api/owners"),
+        $axios.$get("/api/categories")
       ]);
       return {
-        categories: categoriesRes.categories,
-        owners: ownersRes.owners
+        owners: ownersRes.owners,
+        categories: categoriesRes.categories
       };
     } catch (error) {
       console.log(error);

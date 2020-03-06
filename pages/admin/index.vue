@@ -101,9 +101,7 @@ export default {
   methods: {
     async handleDelete(id) {
       try {
-        const response = await this.$axios.$delete(
-          `http://localhost:8080/api/products/${id}`
-        );
+        const response = await this.$axios.$delete(`/api/products/${id}`);
         this.products = this.products.filter(product => product._id !== id);
         return this.products;
       } catch (error) {
