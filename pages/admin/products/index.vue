@@ -162,7 +162,7 @@ export default {
 
         //   Make the request to the POST http://localhost:8080/api/products URL
 
-        await this.$axios.$post("http://localhost:8080/api/products", formData);
+        await this.$axios.$post("/api/products", formData);
 
         // Redirect to admin page
         this.$router.push("/");
