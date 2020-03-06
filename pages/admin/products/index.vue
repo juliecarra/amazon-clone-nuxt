@@ -111,11 +111,13 @@ export default {
   //Use asyncData to perform API calls.
   async asyncData({ $axios }) {
     try {
-      //Use this syntax to run multiple requests at the same time.
-      let [categoriesRes, ownersRes] = await Promise.all([
-        $axios.$get("/api/owners"),
-        $axios.$get("/api/categories")
+      let getCategories = $axios.$get("/api/categories");
+      let getOwners = $axios.$get("/api/owners");
+      const [categoriesRes, ownersRes] = await Promise.all([
+        getCategories,
+        getOwners
       ]);
+
       return {
         owners: ownersRes.owners,
         categories: categoriesRes.categories
