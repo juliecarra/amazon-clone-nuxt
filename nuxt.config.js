@@ -18,7 +18,7 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/img/logo.png" },
       { rel: "stylesheet", href: "/css/font-awesome/css/all.css" },
       { rel: "stylesheet", href: "/css/default.css" }
     ]
