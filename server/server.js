@@ -40,13 +40,14 @@ app.use("/api/addresses", require("./routes/addresses"));
 app.use("/api/payments", require("./routes/payments"));
 app.use("/api/orders", require("./routes/orders"));
 
-//here we are configuring dist to serve app files
-app.use("/", serveStatic(path.join(__dirname, "/dist")));
+if (process.env.NODE_ENV === "production") {
+  const appPath = path.join(__dirname, "..", "dist");
+  app.use(serveStatic(appPath));
 
-// this * route is to serve project on different page routes except root `/`
-app.get(/.*/, function(req, res) {
-  res.sendFile(path.join(__dirname, "/client/dist/index.html"));
-});
+  app.get("*", function(req, res) {
+    res.sendFile(path.resolve(appPath, "index.html"));
+  });
+}
 
 app.listen(process.env.PORT, () => {
   console.log(`App listening on: http://localhost:${process.env.PORT} !`);
