@@ -43,7 +43,7 @@ app.use("/api/orders", require("./routes/orders"));
 app.use(serveStatic(__dirname + "/dist"));
 
 app.get("/", function(req, res) {
-  res.render(path.join(__dirname + "/dist/index.html"));
+  res.render(path.join(__dirname + "/dist/app.template.html"));
 });
 
 app.listen(process.env.PORT, () => {
