@@ -41,6 +41,10 @@ app.use("/api/orders", require("./routes/orders"));
 
 app.use(serveStatic(__dirname + "/dist"));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`App listening on: http://localhost:${process.env.PORT} !`);
 });
