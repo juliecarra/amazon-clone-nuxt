@@ -56,7 +56,10 @@ export default {
    */
   axios: {
     proxy: true,
-    baseURL: URL
+    baseURL:
+      process.env.NODE_ENV === "production"
+        ? "https://amazon-clone-vuejs.herokuapp.com"
+        : URL
   },
 
   // "@nuxtjs/auth" configuration
